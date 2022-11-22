@@ -2,12 +2,12 @@
 require 'boje'
 
 RSpec.describe Boje do
-  it "has a version number" do
-    expect(Boje::VERSION).not_to be nil
+  it "Loads image from url" do
+    expect(Boje::Extractor.load_image_from_url('test.jpeg')).to eq("JPEG")
   end
-
-  it "Prints Something" do
-    expect(Boje.print_something).to eq("Something")
-  end
+  
+  # it "Loads image from blob" do
+  #   expect(Boje.load_image_from_blob('test')).to eq("JPEG")
+  # end
 
 end
