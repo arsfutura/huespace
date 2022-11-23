@@ -2,38 +2,39 @@
 
 require "mini_magick"
 require "kmeans-clusterer"
+require "base64"
 
 module Boje
-  class Extractor
-    def self.load_image_from_url(url)
-      @image = MiniMagick::Image.open(url)
-      @image.resize('150x150')
-    end
+
+  def Boje.get_palette(image_source, n_colors)
+
+    # image = MiniMagick::Image.open(image_source)
+    # image.resize('150x150')
     
-    def self.load_image_from_blob(blob)
-      @image = MiniMagick::Image.read(blob)
-      @image.resize('150x150')
-    end
+    # Extract from stream or blob
+    image = MiniMagick::Image.read(image_source) # 
+    image.resize('150x150')
     
-    def self.extract_colors(n)
-      raise "No Image: load image before extracting using load_image_from_url or load_image_from_blob" if @image == nil
+    pixels = image.get_pixels.flatten(1)
+    clusters = KMeansClusterer.run(n_colors, pixels, runs: 3, max_iter: 300).clusters
+    centroids = clusters.map { |cluster| cluster.centroid.to_a}
 
-      pixels = @image.get_pixels.flatten(1)
-      clusters = KMeansClusterer.run(n, pixels, runs: 3, max_iter: 300).clusters
-      centroids = clusters.map { |cluster| cluster.centroid.to_a}
+    return centroids.map { |centroid| centroid.map { |n| n.round() }}
+  end
 
-      return centroids.map { |centroid| centroid.map { |n| n.round() }}
-    end
+  # Returns most colorfull color from the palette
+  # This is achieved by sorting using the following formula:
+  # (max + min) * (max - min)) / max
+  # max and min represent one of the rgb values
+  # More about this here: http://changingminds.org/explanations/perception/visual/colourfulness.htm
+  def Boje.get_most_colorfull_color(image_source)
+    colors = get_palette(image_source, 6)
 
-    def self.extract_most_vibrant_color()
-      colors = self.extract_colors(6)
+    return colors.sort_by { |color| ((color.max + color.min) * (color.max - color.min)) / color.max }.last()
+  end
 
-      # Here we sort by "colorfulness", using the following formula:
-      # (max + min) * (max - min)) / max
-      # max and min represent one of the rgb values
-      # More about this here: http://changingminds.org/explanations/perception/visual/colourfulness.htm
-      return colors.sort_by { |color| ((color.max + color.min) * (color.max - color.min)) / color.max }.last()
-    end
-
+  # Returns most representative color from the image
+  def Boje.get_dominant_color(image_source)
+    puts "Not Implemented!"
   end
 end

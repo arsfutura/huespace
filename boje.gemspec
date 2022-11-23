@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "boje"
-  spec.version = "0.1.0"
+  spec.version = "0.2.0"
   spec.author = "Dino Tognon"
   spec.email = "dino.tognon@arsfutura.co"
 
