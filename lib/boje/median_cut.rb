@@ -1,19 +1,20 @@
 module Boje
     class MedianCut
         SplitInfo = Struct.new(:range, :group_index, :color_index, keyword_init: true)
+        
         def self.process(colors, count, hist)
             colors = colors.uniq # Remove duplicate colors
             groups = [colors]
             limit = [count, colors.size].min
             
             loop do
+                break if groups.size >= limit
+
                 split_info = determine_split(groups)
                 group1, group2 = split_group(groups[split_info.group_index], split_info)
                 groups.delete_at(split_info.group_index) # Remove group that we split by
-                groups.insert(split_info.group_index, group2) unless group2.empty? # MOZE APPEND UMJESTO SORT
-                groups.insert(split_info.group_index, group1) unless group1.empty?
-    
-                break if groups.size >= limit
+                groups << group1 unless group1.empty?
+                groups << group2 unless group2.empty?
             end
             
             palette = []
@@ -57,6 +58,8 @@ module Boje
             [group1, group2]
         end
 
+        # Score for sorting colors by dominance
+        # For each group we calculate the sum of how many of each pixel from the group was in the original image
         def self.calc_sort_score(group, hist)
             score = 0
             group.each do |pixel|
