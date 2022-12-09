@@ -70,18 +70,9 @@ module Boje
         end
     
         def self.average_color(colors)
-            average_r = 0
-            average_g = 0
-            average_b = 0
-    
-            colors.each do |color|
-                average_r += color[0]
-                average_g += color[1]
-                average_b += color[2]
-            end
-            average_r = (average_r / colors.length).round()
-            average_g = (average_g / colors.length).round()
-            average_b = (average_b / colors.length).round()
+            average_r = colors.map { |pixel| pixel[0]}.sum() / colors.size()
+            average_g = colors.map { |pixel| pixel[1]}.sum() / colors.size()
+            average_b = colors.map { |pixel| pixel[2]}.sum() / colors.size()
     
             [average_r, average_g, average_b]
         end
