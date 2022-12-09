@@ -2,8 +2,8 @@
 
 Gem::Specification.new do |spec|
   spec.name = "boje"
-  spec.version = "0.2.0"
-  spec.author = "Dino Tognon"
+  spec.version = "0.3.0"
+  spec.author = "Dino Tognon, Ivan Božić"
   spec.email = "dino.tognon@arsfutura.co"
 
   spec.summary = "Extract dominant colors from an image"
@@ -24,7 +24,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "mini_magick"
-  spec.add_dependency "kmeans-clusterer", "~> 0.11.4"
 
   spec.add_development_dependency "rspec", "~> 3.2"
 
