@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description = "Huespace can extract a color palette from local images, url-s or images as byte-streams. 
                       Besides palettes, it can also extract the most dominant color and the most colorful color!"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.6.0"
+  spec.required_ruby_version = ">= 2.5.7"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "mini_magick"
+  spec.add_dependency "mini_magick", "~> 4.12.0"
 
   spec.add_development_dependency "rspec", "~> 3.2"
 
