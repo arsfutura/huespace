@@ -1,4 +1,4 @@
-module Boje
+module Huespace
     class MedianCut
         SplitInfo = Struct.new(:range, :group_index, :color_index, keyword_init: true)
         
@@ -63,7 +63,7 @@ module Boje
         def self.calc_sort_score(group, hist)
             score = 0
             group.each do |pixel|
-                score += hist[Boje.get_pixel_index(pixel)]
+                score += hist[Huespace.get_pixel_index(pixel)]
             end
 
             score

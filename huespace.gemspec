@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |spec|
-  spec.name = "boje"
+  spec.name = "huespace"
   spec.version = "0.3.0"
   spec.author = "Dino Tognon, Ivan Božić"
   spec.email = "dino.tognon@arsfutura.co"
 
-  spec.summary = "Extract dominant colors from an image"
-  spec.description = "Extract up to 10 dominant colors from an image."
-  # spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.summary = "Extract a color palette from any image"
+  spec.description = "Huespace can extract a color palette from local images, url-s or images as byte-streams. 
+                      Besides palettes, it can also extract the most dominant color and the most colorful color!"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 

@@ -1,37 +1,38 @@
-# Boje
+# Huespace
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/boje`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A ruby gem that extracts representative colors from images.
 
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add boje
+    $ bundle add huespace
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install boje
+    $ gem install huespace
 
 ## Usage
 
-TODO: Write usage instructions here
+### image_source
 
-## Development
+In the following text `image_source` means one of the following:
+    - path to the image stored locally
+    - url of the image
+    - image as a stream of bytes (so you can fetch it once on the backend)
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### Extracting a palette of colors
+Returns an array of colors, exp. [[47, 48, 62], [91, 92, 117], [218, 154, 95]]
+`Huespace.get_palette(image_source, n_colors)`
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+### Extracting the dominant color
+Returns the color that best represents the image
+`Huespace.get_dominant_color(image_source)`
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/boje. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/boje/blob/main/CODE_OF_CONDUCT.md).
+### Extracting the most colorful color
+Returns the most colorful (probably best described as most vibrant) color from a palette of 6 colors
+`Huespace.get_most_colorful_color(image_source)`
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Boje project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/boje/blob/main/CODE_OF_CONDUCT.md).

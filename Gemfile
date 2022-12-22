@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in boje.gemspec
+# Specify your gem's dependencies in huespace.gemspec
 gemspec
 
 gem "rake", "~> 13.0"
