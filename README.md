@@ -23,14 +23,17 @@ In the following text `image_source` means one of the following:
 
 ### Extracting a palette of colors
 Returns an array of colors, exp. [[47, 48, 62], [91, 92, 117], [218, 154, 95]]
+
 `Huespace.get_palette(image_source, n_colors)`
 
 ### Extracting the dominant color
 Returns the color that best represents the image
+
 `Huespace.get_dominant_color(image_source)`
 
 ### Extracting the most colorful color
 Returns the most colorful (probably best described as most vibrant) color from a palette of 6 colors
+
 `Huespace.get_most_colorful_color(image_source)`
 
 ## License
