@@ -2,10 +2,10 @@
 
 Gem::Specification.new do |spec|
   spec.name = "huespace"
-  spec.version = "0.3.1"
+  spec.version = "0.3.2"
   spec.author = "Dino Tognon, Ivan Božić"
   spec.email = "dino.tognon@arsfutura.co"
-
+  spec.homepage = 'https://github.com/arsfutura/huespace'
   spec.summary = "Extract a color palette from any image"
   spec.description = "Huespace can extract a color palette from local images, url-s or images as byte-streams. 
                       Besides palettes, it can also extract the most dominant color and the most colorful color!"

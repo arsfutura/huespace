@@ -13,3 +13,6 @@
 
 ## [0.3.1] - 2023-01-03
 - Fix import issues
+
+## [0.3.2] - 2023-01-03
+- Add homepage to gemspec
