@@ -1,6 +1,8 @@
 # Huespace
 
-A ruby gem that extracts representative colors from images.
+A ruby gem that extracts a palette of most representative colors from images.
+
+Inspired by npm packet `color-thief` by Lokesh Dhakar (https://github.com/lokesh/color-thief) and ruby gem `Camalian` by Nazar Hussain (https://github.com/nazarhussain/camalian/blob/master/camalian.gemspec)
 
 ## Installation
 
