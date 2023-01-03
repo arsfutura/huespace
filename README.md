@@ -17,9 +17,9 @@ If bundler is not being used to manage dependencies, install the gem by executin
 ### image_source
 
 In the following text `image_source` means one of the following:
-    - path to the image stored locally
-    - url of the image
-    - image as a stream of bytes (so you can fetch it once on the backend)
+- path to the image stored locally
+- url of the image
+- image as a stream of bytes (so you can fetch it once on the backend)
 
 ### Extracting a palette of colors
 Returns an array of colors, exp. [[47, 48, 62], [91, 92, 117], [218, 154, 95]]
