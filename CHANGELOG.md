@@ -10,3 +10,6 @@
 
 ## [0.3.0] - 2022-12-09
 - Get most dominant color
+
+## [0.3.1] - 2023-01-03
+- Fix import issues

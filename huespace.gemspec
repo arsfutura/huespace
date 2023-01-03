@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "huespace"
-  spec.version = "0.3.0"
+  spec.version = "0.3.1"
   spec.author = "Dino Tognon, Ivan Božić"
   spec.email = "dino.tognon@arsfutura.co"
 
@@ -14,16 +14,11 @@ Gem::Specification.new do |spec|
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files = Dir.chdir(__dir__) do
-    `git ls-files -z`.split("\x0").reject do |f|
-      (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
-    end
-  end
+  spec.files = ["lib/huespace.rb", "lib/huespace/median_cut.rb"]
   spec.bindir = "exe"
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "mini_magick", "~> 4.12.0"
+  spec.add_dependency "mini_magick", "~> 4.11.0"
 
   spec.add_development_dependency "rspec", "~> 3.2"
 

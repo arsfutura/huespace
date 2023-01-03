@@ -2,7 +2,7 @@
 
 module Huespace
   require "mini_magick"
-  require "./lib/huespace/median_cut.rb"
+  require "huespace/median_cut.rb"
 
   # Returns a palette of representative colors
   def Huespace.get_palette(image_source, n_colors)
